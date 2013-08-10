@@ -1,0 +1,29 @@
+{
+  "name": "playlist-parser",
+  "version": "0.0.0",
+  "description": "Parse m3u, pls, and asx",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha -R nyan"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/nickdesaulniers/javascript-playlist-parser.git"
+  },
+  "keywords": [
+    "javascript",
+    "playlist",
+    "parse",
+    "m3u",
+    "pls",
+    "asx"
+  ],
+  "author": "Nick Desaulniers",
+  "license": "Dual MIT & Beerware",
+  "bugs": {
+    "url": "https://github.com/nickdesaulniers/javascript-playlist-parser/issues"
+  }
+}
