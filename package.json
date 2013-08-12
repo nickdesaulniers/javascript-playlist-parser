@@ -25,5 +25,8 @@
   "license": "Dual MIT & Beerware",
   "bugs": {
     "url": "https://github.com/nickdesaulniers/javascript-playlist-parser/issues"
+  },
+  "dependencies": {
+    "chai": "1.7.2"
   }
 }

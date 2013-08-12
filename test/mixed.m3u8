@@ -1,0 +1,14 @@
+# Comments start with a pound sign
+# http://en.wikipedia.org/wiki/M3U
+
+# Absolute
+/Users/Nicholas/Music/lateralus_clip.ogg
+
+# Relative
+../../Music/lateralus_clip.mp3
+
+# URL
+http://lostoracle.net:3000/transcode/ogg/4194855
+http://lostoracle.net:3000/transcode/ogg/4196307
+http://lostoracle.net:3000/transcode/ogg/4196307
+
