@@ -1,0 +1,12 @@
+#EXTM3U
+#EXTINF:822,Iron Maiden - Rime of the Ancient Mariner
+~/Music/RotAM.mp3
+#EXTINF:272,Katatonia - Burn the Remembrance
+mp3/katatonia/burn_the_remembrance.ogg
+#EXTINF:381,Tool - The Pot
+http://stolenmp3s.com/12345.m4a
+#EXTINF:249,A Perfect Circle - Passive
+ws://stolenmp3s.com/54321.aac
+#EXTINF:249,Entwine - Save Your Sins
+wss://192.168.1.1/llllllll.mp3
+

@@ -5,8 +5,6 @@ var should = require("chai").should();
 var parsers = require("../index");
 var M3U = parsers.M3U;
 
-console.log(M3U.name);
-
 describe("m3u parsing", function () {
   it("should have a name of m3u", function () {
     M3U.name.should.equal("m3u");
@@ -33,6 +31,20 @@ describe("m3u parsing", function () {
 
       parsed[0].location.should.equal("http://stream-sd.radioparadise.com:8058");
       parsed[1].location.should.equal("http://stream-sd.radioparadise.com:8056");
+    });
+  });
+
+  describe("extended parsing", function () {
+    it("should return an array of objects", function () {
+      var playlist = fs.readFileSync("./test/extended.m3u", { encoding: "utf8" });
+      var parsed = M3U.parse(playlist);
+      parsed.length.should.equal(5);
+      parsed.forEach(function (song) {
+        song.should.have.ownProperty("duration");
+        song.should.have.ownProperty("artist");
+        song.should.have.ownProperty("title");
+        song.should.have.ownProperty("location");
+      });
     });
   });
 });
