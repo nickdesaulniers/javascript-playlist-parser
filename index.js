@@ -1,1 +1,2 @@
-module.exports = require("./lib/main.js");
+module.exports = require("./build/parser.js");
+

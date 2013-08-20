@@ -1,7 +1,7 @@
 module.exports = function (grunt) {
   grunt.initConfig({
     coffee: {
-      compileJoined: {
+      compile: {
         files: {
           "build/parser.js": ["lib/*.coffee"],
         },

@@ -26,7 +26,7 @@ parse = (playlist) ->
     playlist.split("\n").filter(empty).map toSong
 
 if  module and module.exports
-  module.exports =
+  module.exports.M3U =
     name: "m3u"
     parse: parse
 
