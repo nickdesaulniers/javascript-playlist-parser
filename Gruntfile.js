@@ -12,7 +12,7 @@ module.exports = function (grunt) {
         options: {
           reporter: "nyan",
         },
-        src: ["test/test.js"],
+        src: ["test/test.coffee"],
       },
     }
   });
