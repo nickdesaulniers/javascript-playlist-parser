@@ -3,7 +3,7 @@ module.exports = (grunt) ->
     coffee:
       compile:
         files:
-          "build/parser.js": ["lib/*.coffee"]
+          "lib/parser.js": ["src/*.coffee"]
     mochaTest:
       test:
         options:
