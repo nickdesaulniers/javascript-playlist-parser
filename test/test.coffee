@@ -2,7 +2,7 @@ fs = require "fs"
 assert = require "assert"
 should = require("chai").should()
 
-parsers = require "../index"
+parsers = require "../lib/parser.js"
 M3U = parsers.M3U
 
 describe "m3u parsing", ->

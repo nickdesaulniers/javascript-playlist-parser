@@ -14,5 +14,5 @@ module.exports = (grunt) ->
   grunt.loadNpmTasks "grunt-mocha-test"
 
   grunt.registerTask "default", ["coffee", "mochaTest"]
-  grunt.registerTask "test", ["mochaTest"]
+  grunt.registerTask "test", ["coffee", "mochaTest"]
 
