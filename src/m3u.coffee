@@ -12,21 +12,20 @@ extended = (line) ->
     title: match[3]
     location: match[4]
 
+simple = (string) ->
+  location: string
+
 empty = (line) ->
   !!line.trim().length
 
-toSong = (string) ->
-  location: string
-
 parse = (playlist) ->
   firstNewline = playlist.search "\n"
-  if  playlist.substr(0, firstNewline) is EXTENDED
+  if playlist.substr(0, firstNewline) is EXTENDED
     playlist.substr(firstNewline).split("#").filter(empty).map extended
   else
-    playlist.split("\n").filter(empty).map toSong
+    playlist.split("\n").filter(empty).map simple
 
-if  module and module.exports
-  module.exports.M3U =
-    name: "m3u"
-    parse: parse
+(if module and module.exports then module.exports else window).M3U =
+  name: "m3u"
+  parse: parse
 
