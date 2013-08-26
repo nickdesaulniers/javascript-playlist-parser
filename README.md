@@ -11,7 +11,7 @@ Parse m3u, pls, and asx in JavaScript
 // Fetch the playlist file, using xhr for example
 var xhr = new XMLHttpRequest();
 xhr.open("GET", "my_playlist.m3u");
-xhr.overrideMimeType("audio/x-mpegurl");
+xhr.overrideMimeType("audio/x-mpegurl"); // Needed, see below.
 xhr.onload = parse;
 xhr.send();
 
@@ -41,31 +41,33 @@ var M3U = parsers.M3U;
 var fs = require("fs");
 var playlist = M3U.parse(fs.readFileSync("my_playlist.m3u", { encodeing: "utf8" }));
 ```
-##Objects##
+##Return Values##
+Calls to parse return an array of objects that look like:
+
 ###M3U Simple###
 ```javascript
-{
+[{
   location: "http://song.com/song.mp3"
-}
+}]
 ```
 
 ###M3U Extended###
 ```javascript
-{
+[{
   duration: 1234,
   artist: "Iron Maiden",
   title: "Rime of the Ancient Mariner",
   location: "http://song.com/song.mp3"
-}
+}]
 ```
 
 ###PLS###
 ```javascript
-{
+[{
   file: "http://song.com/song.mp3",
   title: "My favorite song ever by my favorite artist",
   length: 1234
-}
+}]
 ```
 
 ##MIME Types##
