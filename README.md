@@ -4,7 +4,7 @@ Parse m3u, pls, and asx in JavaScript
 ##Usage##
 ###Browser###
 ```html
-<script src="parser.js"></script>
+<script src="https://raw.github.com/nickdesaulniers/javascript-playlist-parser/master/lib/parser.js"></script>
 ```
 
 ```javascript
