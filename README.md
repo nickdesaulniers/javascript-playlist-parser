@@ -28,7 +28,7 @@ function parse () {
 // Play each song after a song finishes
 function next (audio, playlist, i) {
   if (i < playlist.length) {
-    audio.src = playlist[i++].location;
+    audio.src = playlist[i++].file;
     audio.onended = next.bind(null, playlist, i);
     audio.play();
   }
@@ -54,17 +54,17 @@ Calls to parse return an array of objects that look like:
 ###M3U Simple###
 ```javascript
 [{
-  location: "http://song.com/song.mp3"
+  file: "http://song.com/song.mp3"
 }]
 ```
 
 ###M3U Extended###
 ```javascript
 [{
-  duration: 1234,
+  length: 1234,
   artist: "Iron Maiden",
   title: "Rime of the Ancient Mariner",
-  location: "http://song.com/song.mp3"
+  file: "http://song.com/song.mp3"
 }]
 ```
 

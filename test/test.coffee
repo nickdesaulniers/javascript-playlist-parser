@@ -25,10 +25,10 @@ describe 'm3u parsing', ->
 
       parsed.forEach (song) ->
         song.should.be.an 'object'
-        song.should.have.ownProperty 'location'
+        song.should.have.ownProperty 'file'
 
-      parsed[0].location.should.equal 'http://stream-sd.radioparadise.com:8058'
-      parsed[1].location.should.equal 'http://stream-sd.radioparadise.com:8056'
+      parsed[0].file.should.equal 'http://stream-sd.radioparadise.com:8058'
+      parsed[1].file.should.equal 'http://stream-sd.radioparadise.com:8056'
 
   describe 'extended parsing', ->
     it 'should return an array of objects', ->
@@ -36,10 +36,10 @@ describe 'm3u parsing', ->
       parsed = M3U.parse playlist
       parsed.length.should.equal 5
       parsed.forEach (song) ->
-        song.should.have.ownProperty 'duration'
+        song.should.have.ownProperty 'length'
         song.should.have.ownProperty 'artist'
         song.should.have.ownProperty 'title'
-        song.should.have.ownProperty 'location'
+        song.should.have.ownProperty 'file'
 
 describe 'pls parsing', ->
   it 'should have a name of pls', ->

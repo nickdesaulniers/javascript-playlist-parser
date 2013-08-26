@@ -7,13 +7,13 @@ COMMENT_RE = /:(\d+),(.+)\s*-\s*(.+)\n(.+)/
 extended = (line) ->
   match = line.match COMMENT_RE
   if match && match.length is 5
-    duration: match[1]
+    length: match[1]
     artist: match[2]
     title: match[3]
-    location: match[4]
+    file: match[4]
 
 simple = (string) ->
-  location: string
+  file: string
 
 empty = (line) ->
   !!line.trim().length
