@@ -18,7 +18,7 @@
     "playlist",
     "parse",
     "m3u",
-    "pls",
+    "pls"
   ],
   "author": "Nick Desaulniers",
   "license": "Dual MIT & Beerware",
