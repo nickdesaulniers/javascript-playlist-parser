@@ -1,8 +1,7 @@
 #javascript-playlist-parser#
-##Parse m3u, pls, and asx in JavaScript##
+Parse m3u, pls, and asx in JavaScript
 
 ##Usage##
-
 ###Browser###
 ```html
 <script src="parser.js"></script>
@@ -34,7 +33,7 @@ function next (audio, playlist, i) {
 ```
 
 ###Node.js###
-`npm install XXX`
+`npm install playlist-parser`
 ```javascript
 var parsers = require("XXX");
 var M3U = parsers.M3U;
