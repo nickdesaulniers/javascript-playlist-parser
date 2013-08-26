@@ -1,7 +1,7 @@
 {
   "name": "playlist-parser",
   "version": "0.0.3",
-  "description": "Parse m3u, pls, and asx",
+  "description": "Parse m3u, m3u extended, and pls",
   "main": "lib/parser.js",
   "directories": {
     "test": "test"
@@ -19,7 +19,6 @@
     "parse",
     "m3u",
     "pls",
-    "asx"
   ],
   "author": "Nick Desaulniers",
   "license": "Dual MIT & Beerware",

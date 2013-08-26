@@ -1,8 +1,11 @@
 #javascript-playlist-parser#
-Parse m3u, pls, and asx in JavaScript
+Parse m3u, m3u extended, and pls in JavaScript.
 
 ##Usage##
 ###Browser###
+Adds `window.M3U.parse` and `window.PLS.parse` which take a string and return
+a possibly empty array of objects.
+
 ```html
 <script src="https://raw.github.com/nickdesaulniers/javascript-playlist-parser/master/lib/parser.js"></script>
 ```
@@ -33,6 +36,10 @@ function next (audio, playlist, i) {
 ```
 
 ###Node.js###
+Adds `require('playlist-parser').M3U.parse` and
+`require('playlist-parser').PLS.parse` which take a string and return
+a possibly empty array of objects.
+
 `npm install playlist-parser`
 ```javascript
 var parsers = require("playlist-parser");
