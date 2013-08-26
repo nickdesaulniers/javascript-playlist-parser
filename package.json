@@ -27,7 +27,7 @@
   "bugs": {
     "url": "https://github.com/nickdesaulniers/javascript-playlist-parser/issues"
   },
-  "dependencies": {
+  "devDependencies": {
     "chai": "1.7.2",
     "grunt-contrib-coffee": "0.7.0",
     "grunt-mocha-test": "0.6.3"

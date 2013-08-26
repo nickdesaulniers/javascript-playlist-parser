@@ -1,7 +1,49 @@
 #javascript-playlist-parser#
 ##Parse m3u, pls, and asx in JavaScript##
 
-#License#
+##Usage##
+
+###Browser###
+```html
+<script src="parser.js"></script>
+```
+
+```javascript
+// Fetch the playlist file, using xhr for example
+var xhr = new XMLHttpRequest();
+xhr.open("GET", "my_playlist.m3u");
+xhr.overrideMimeType("audio/x-mpegurl");
+xhr.onload = parse;
+xhr.send();
+
+// Parse it
+function parse () {
+  var playlist = M3U.parse(this.response);
+  var audio = new Audio();
+  next(audio, playlist, 0);
+};
+
+// Play each song after a song finishes
+function next (audio, playlist, i) {
+  if (i < playlist.length) {
+    audio.src = playlist[i++].location;
+    audio.onended = next.bind(null, playlist, i);
+    audio.play();
+  }
+};
+```
+
+###Node.js###
+`npm install XXX`
+```javascript
+var parsers = require("XXX");
+var M3U = parsers.M3U;
+
+var fs = require("fs");
+var playlist = M3U.parse(fs.readFileSync("my_playlist.m3u", { encodeing: "utf8" }));
+```
+
+##License##
 
 This software is dual licensed under the MIT and Beerware license.
 
