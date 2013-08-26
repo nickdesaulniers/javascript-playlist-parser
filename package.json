@@ -1,6 +1,6 @@
 {
   "name": "playlist-parser",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Parse m3u, pls, and asx",
   "main": "lib/parser.js",
   "directories": {
