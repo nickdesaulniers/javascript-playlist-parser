@@ -35,7 +35,7 @@ function next (audio, playlist, i) {
 ###Node.js###
 `npm install playlist-parser`
 ```javascript
-var parsers = require("XXX");
+var parsers = require("playlist-parser");
 var M3U = parsers.M3U;
 
 var fs = require("fs");
