@@ -35,6 +35,8 @@ function next (audio, playlist, i) {
 };
 ```
 
+[Demo](http://nickdesaulniers.github.io/javascript-playlist-parser/)
+
 ###Node.js###
 Adds `require('playlist-parser').M3U.parse` and
 `require('playlist-parser').PLS.parse` which take a string and return
