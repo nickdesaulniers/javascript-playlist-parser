@@ -41,6 +41,14 @@ describe 'm3u parsing', ->
         song.should.have.ownProperty 'title'
         song.should.have.ownProperty 'file'
 
+  describe 'bad extended', ->
+    it 'should revert to default parsing from extended parsing', ->
+      playlist = fs.readFileSync './test/bad_extended.m3u', encoding: 'utf8'
+      parsed = M3U.parse playlist
+      parsed.length.should.equal 1
+      parsed[0].file.should.equal 'http://radio.4duk.ru:80/4duk40.mp3'
+
+
 describe 'pls parsing', ->
   it 'should have a name of pls', ->
     PLS.name.should.equal 'pls'
