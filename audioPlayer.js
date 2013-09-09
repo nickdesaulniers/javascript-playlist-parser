@@ -35,7 +35,8 @@ window.AudioPlayer = {
     // If there's more songs to be played, set the onended callback to call this
     // method with the next song in the queue.
     if (this._songQueue.length) {
-      this._song.onended = this._loadSingle.bind(this, this._songQueue.shift());
+      this._song.onended = this._loadSingle
+                               .bind(this, this._songQueue.shift().file);
     }
 
     this._song.src = url;
@@ -49,14 +50,15 @@ window.AudioPlayer = {
     xhr.send();
   },
   play: function (dataset) {
-    if (this._song.paused) {
-      this._song.play();
-    } else if (dataset && dataset.url) {
+    if (dataset && dataset.url) {
       if (dataset.playlist) {
         this._loadPlaylist(dataset.url, dataset.playlist.toLowerCase());
       } else {
         this._loadSingle(dataset.url);
       }
+    } else if (this._song.paused) {
+      // new Audio starts out paused so this conditional branch has to be 2nd
+      this._song.play();
     }
   },
   pause: function () {
@@ -65,13 +67,11 @@ window.AudioPlayer = {
     }
   },
   next: function () {
-    // Issue: so with streams it's not possible to seek to "the end"
-    try {
-      alert(this._song.seekable.length);
-      //alert(this._song.seekable.end(0));
-      //this._song.currentTime = this._song.seekable.end(0);
-    } catch (e) {
-      alert(e);
+    // With streams it's not possible to seek to "the end"
+    if (this._song.seekable.length > 0) {
+      this._song.currentTime = this._song.seekable.end(0);
+    } else if (this._songQueue.length) {
+      this._loadSingle(this._songQueue.shift().file);
     }
   },
 };
