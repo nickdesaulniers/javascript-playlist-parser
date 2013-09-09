@@ -1,7 +1,7 @@
 # http://gonze.com/playlists/playlist-format-survey.html#M3U
 
 EXTENDED = "#EXTM3U"
-COMMENT_RE = /:(\d+),(.+)\s*-\s*(.+)\n(.+)/
+COMMENT_RE = /:(-?\d+),(.+)\s*-\s*(.+)\n(.+)/
 
 # #EXTINF:822,Iron Maiden - Rime of the Ancient Mariner
 extended = (line) ->
