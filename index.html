@@ -1,1 +1,51 @@
-My GitHub Page
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <script src="https://raw.github.com/nickdesaulniers/javascript-playlist-parser/master/lib/parser.js"></script>
+    <script src="audioPlayer.js"></script>
+    <script src="my_script.js"></script>
+    <link rel="stylesheet" href="my_style.css" />
+  </head>
+  <body>
+    <h1>Playlist Parser</h1>
+    <p>
+      Test support for various playlist/codec/protocol support. Click any
+      row to load an example.
+    </p>
+    <table>
+      <thead>
+        <tr>
+          <th>Playlist Support</th>
+          <th>Protocol Support</th>
+          <th>Codec Support</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr data-playlist="" data-protocol="HTTP" data-codec="MP3"
+            data-url="http://195.10.10.226/rtvv/radio9.mp3"></tr>
+        <tr data-playlist="" data-protocol="HTTP" data-codec="M4A"
+            data-url="http://content50c1a.omroep.nl/urishieldv2/l27m2177f176774783110052290b46000000.4da6757f26e7bfbf4637e7de08f8718c/s02/bnn/club/clublife_episode260.m4a"></tr>
+        <tr data-playlist="" data-protocol="" data-codec="AAC" class="red"
+            data-url="http://mp3.radiohamburg.c.nmdn.net/radiohamburg/livestream64.aac"></tr>
+        <tr data-playlist="" data-protocol="" data-codec="WMA" class="red"></tr>
+        <tr data-playlist="" data-protocol="ICY" data-codec="MP3"
+            data-url="http://50.117.121.10/;"></tr>
+        <tr data-playlist="" data-protocol="MMS" data-codec="" class="red"></tr>
+        <tr data-playlist="" data-protocol="RTSP" data-codec="" class="red"></tr>
+        <tr data-playlist="M3U" data-protocol="HTTP" data-codec="MP3"
+            data-url="http://www.4duk.ru/8004.m3u"></tr>
+        <tr data-playlist="M3U" data-protocol="ICY" data-codec="MP3"
+            data-url="http://mp3-live.swr.de/swr4rp_m.m3u"></tr>
+        <tr data-playlist="PLS" data-protocol="HTTP" data-codec="MP3"
+            data-url="www.publicbroadcasting.net/wamc/ppr/wamc.pls"></tr>
+        <tr data-playlist="PLS" data-protocol="ICY" data-codec="MP3"></tr>
+      </tbody>
+    </table>
+    <button id="play">play</button>
+    <button id="pause">pause</button>
+    <button id="next">next</button>
+    <button id="previous">previous</button>
+  </body>
+</html>
+
