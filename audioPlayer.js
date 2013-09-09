@@ -15,11 +15,19 @@ window.AudioPlayer = {
       this._song.play();
     }
   },
-  _parsePlaylist: function (xhr) {
-    var playlist = M3U.parse(xhr.responseText);
-    console.log(playlist || 'coundnt parse plalist');
-    this._songQueue = this._songQueue.concat(playlist);
-    this._loadSingle(this._songQueue.shift().file);
+  _parsePlaylist: function (xhr, playlistFormat) {
+    var playlist = null;
+    if (playlistFormat === 'm3u') {
+      playlist = M3U.parse(xhr.responseText);
+    } else if (playlistFormat === 'pls') {
+      playlist = PLS.parse(xhr.responseText);
+    }
+    if (playlist) {
+      this._songQueue = this._songQueue.concat(playlist);
+      this._loadSingle(this._songQueue.shift().file);
+    } else {
+      console.error('Failed to parse playlist: ' + xhr.responseText);
+    }
   },
   _loadSingle: function (url) {
     this._unload();
@@ -34,11 +42,10 @@ window.AudioPlayer = {
     this._song.play();
   },
   _loadPlaylist: function (url, playlistFormat) {
-    console.log('load playlist',this._proxyServer);
     var xhr = new XMLHttpRequest({mozSystem: true});
     xhr.open('GET', this._proxyServer + encodeURIComponent(url));
     xhr.overrideMimeType(this._MIMETypeMap[playlistFormat]);
-    xhr.onload = this._parsePlaylist.bind(this, xhr);
+    xhr.onload = this._parsePlaylist.bind(this, xhr, playlistFormat);
     xhr.send();
   },
   play: function (dataset) {
@@ -46,7 +53,7 @@ window.AudioPlayer = {
       this._song.play();
     } else if (dataset && dataset.url) {
       if (dataset.playlist) {
-        this._loadPlaylist(dataset.url, dataset.playlist);
+        this._loadPlaylist(dataset.url, dataset.playlist.toLowerCase());
       } else {
         this._loadSingle(dataset.url);
       }
