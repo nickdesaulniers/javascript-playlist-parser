@@ -7,13 +7,19 @@ window.AudioPlayer = {
     m3u: 'audio/x-mpegurl',
     pls: 'audio/audio/x-scpls'
   },
-  _unload: function () {
+  _unloadSingle: function () {
     // If the user wants to change songs, unload previous song from hardware
     // acceleration.
     if (!!this._song.src) {
       this._song.src = null;
       this._song.play();
     }
+  },
+  _unloadPlaylist: function () {
+    if (this._songQueue.length) {
+      this._songQueue.length = 0;
+    }
+    this._unloadSingle();
   },
   _parsePlaylist: function (xhr, playlistFormat) {
     var playlist = null;
@@ -30,19 +36,21 @@ window.AudioPlayer = {
     }
   },
   _loadSingle: function (url) {
-    this._unload();
+    this._unloadSingle();
 
     // If there's more songs to be played, set the onended callback to call this
     // method with the next song in the queue.
     if (this._songQueue.length) {
-      this._song.onended = this._loadSingle
-                               .bind(this, this._songQueue.shift().file);
+      this._song.onended = function () {
+        this._loadSingle(this._songQueue.shift().file);
+      }.bind(this);
     }
 
     this._song.src = url;
     this._song.play();
   },
   _loadPlaylist: function (url, playlistFormat) {
+    this._unloadPlaylist();
     var xhr = new XMLHttpRequest({mozSystem: true});
     xhr.open('GET', this._proxyServer + encodeURIComponent(url));
     xhr.overrideMimeType(this._MIMETypeMap[playlistFormat]);
@@ -72,6 +80,11 @@ window.AudioPlayer = {
       this._song.currentTime = this._song.seekable.end(0);
     } else if (this._songQueue.length) {
       this._loadSingle(this._songQueue.shift().file);
+    } else {
+      this._unloadSingle();
     }
+  },
+  stop: function () {
+    this._unloadPlaylist();
   },
 };

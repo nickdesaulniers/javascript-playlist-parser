@@ -17,14 +17,11 @@ function createListings () {
 // Attach tr onclick events, event delegation
 function trClick (event) {
   var target = event.target;
-  // FIX THIS
   if (target && target.nodeName === 'TR') {
+    AudioPlayer.play(target.dataset);
   } else if (target.parentNode.nodeName === 'TR') {
-    target = target.parentNode;
-  } else {
-    return;
+    AudioPlayer.play(target.parentNode.dataset);
   }
-  AudioPlayer.play(target.dataset);
 };
 
 function playBack () {
@@ -39,7 +36,8 @@ function playBack () {
     case 'next':
       AudioPlayer.next();
       break;
-    case 'previous':
+    case 'stop':
+      AudioPlayer.stop();
       break;
   };
 };
@@ -52,7 +50,7 @@ window.addEventListener('DOMContentLoaded', function () {
   createListings();
   document.getElementsByTagName('tbody')[0].addEventListener('click', trClick);
   Array.prototype.forEach.call(
-    document.querySelectorAll('#play,#pause,#next,#previous'),
+    document.querySelectorAll('#play,#pause,#next,#stop'),
     attachPlayBack
   );
 });
