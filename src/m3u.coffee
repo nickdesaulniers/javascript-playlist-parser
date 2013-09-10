@@ -6,7 +6,7 @@ COMMENT_RE = /:(-?\d+),(.+)\s*-\s*(.+)\n(.+)/
 # #EXTINF:822,Iron Maiden - Rime of the Ancient Mariner
 extended = (line) ->
   match = line.match COMMENT_RE
-  if match && match.length is 5
+  if match and match.length is 5
     length: match[1]
     artist: match[2]
     title: match[3]
