@@ -3,16 +3,16 @@ module.exports = (grunt) ->
     coffee:
       compile:
         files:
-          "lib/parser.js": ["src/*.coffee"]
+          'lib/parser.js': ['src/*.coffee']
     mochaTest:
       test:
         options:
-          reporter: "nyan"
-        src: ["test/test.coffee"]
+          reporter: 'nyan'
+        src: ['test/test.coffee']
 
-  grunt.loadNpmTasks "grunt-contrib-coffee"
-  grunt.loadNpmTasks "grunt-mocha-test"
+  grunt.loadNpmTasks 'grunt-contrib-coffee'
+  grunt.loadNpmTasks 'grunt-mocha-test'
 
-  grunt.registerTask "default", ["coffee", "mochaTest"]
-  grunt.registerTask "test", ["coffee", "mochaTest"]
+  grunt.registerTask 'default', ['coffee', 'mochaTest']
+  grunt.registerTask 'test', ['coffee', 'mochaTest']
 
