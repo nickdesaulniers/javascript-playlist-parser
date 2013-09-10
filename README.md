@@ -7,7 +7,7 @@ Adds `window.M3U.parse` and `window.PLS.parse` which take a string and return
 a possibly empty array of objects.
 
 ```html
-<script src="https://raw.github.com/nickdesaulniers/javascript-playlist-parser/master/lib/parser.js"></script>
+<script src="https://raw.github.com/nickdesaulniers/javascript-playlist-parser/master/lib/parser.min.js"></script>
 ```
 
 ```javascript
