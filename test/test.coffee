@@ -2,7 +2,7 @@ fs = require 'fs'
 assert = require 'assert'
 should = require('chai').should()
 
-parsers = require '../lib/parser.js'
+parsers = require '../lib/parser.min.js'
 M3U = parsers.M3U
 PLS = parsers.PLS
 
