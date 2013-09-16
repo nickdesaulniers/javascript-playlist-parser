@@ -1,8 +1,8 @@
 window.AudioPlayer = {
   _song: new Audio(),
   _songQueue: [],
-  //_proxyServer: 'http://lostoracle.net:3000/?url=',
-  _proxyServer: 'http://10.250.21.77:3000/?url=',//
+  _proxyServer: 'http://lostoracle.net:3000/?url=',
+  //_proxyServer: 'http://10.250.21.77:3000/?url=',//
   _MIMETypeMap: {
     m3u: 'audio/x-mpegurl',
     pls: 'audio/audio/x-scpls'
