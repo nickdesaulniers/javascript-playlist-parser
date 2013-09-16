@@ -1,0 +1,11 @@
+<ASX VERSION="3.0">
+  <ENTRY CLIENTSKIP="NO">
+    <TITLE>Item 1</TITLE>
+    <REF HREF="http://stream.radiotime.com/sample.mp3
+" />
+  </ENTRY>
+  <ENTRY CLIENTSKIP="NO">
+    <TITLE>Item 2</TITLE>
+    <REF HREF="http://kexp-mp3-2.cac.washington.edu:8000/" />
+  </ENTRY>
+</ASX>

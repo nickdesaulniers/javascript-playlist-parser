@@ -5,6 +5,7 @@ should = require('chai').should()
 parsers = require '../lib/parser.min.js'
 M3U = parsers.M3U
 PLS = parsers.PLS
+ASX = parsers.ASX
 
 describe 'm3u parsing', ->
   it 'should have a name of m3u', ->
@@ -75,3 +76,25 @@ describe 'pls parsing', ->
       song.should.have.ownProperty 'title'
       song.should.have.ownProperty 'length'
 
+describe 'asx parsing', ->
+  describe 'well formed', ->
+    it 'should have a name of asx', ->
+      ASX.name.should.equal 'asx'
+
+    it 'should return an array', ->
+      parsed = ASX.parse ''
+      parsed.should.be.an 'array'
+      parsed.length.should.be.empty
+
+    it 'should return an array of objects', ->
+      parsed = ASX.parse fs.readFileSync './test/example.asx', encoding: 'utf8'
+      parsed.length.should.equal 1
+      parsed[0].file.should.equal 'http://kexp-mp3-2.cac.washington.edu:8000/'
+
+  describe 'malformed', ->
+    it 'should still parse', ->
+      playlist = fs.readFileSync './test/malformed.asx', encoding: 'utf8'
+      parsed = ASX.parse playlist
+      parsed.length.should.equal 2
+      parsed[0].file.should.equal 'http://stream.radiotime.com/sample.mp3'
+      parsed[1].file.should.equal 'http://kexp-mp3-2.cac.washington.edu:8000/'
