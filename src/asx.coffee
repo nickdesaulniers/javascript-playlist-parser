@@ -10,8 +10,10 @@ find = (node, list) ->
       if /REF/i.test childNodeName
         attributes = childNode.attributes
         for x in [0...attributes.length]
-          match_href = attributes[x].nodeName.match(/HREF/i)[0] 
-        list.push file: childNode.getAttribute(match_href).trim()
+          match = attributes[x].nodeName.match /HREF/i
+          if match
+            list.push file: childNode.getAttribute(match[0]).trim()
+            break
       else if childNodeName isnt '#text'
         find childNode, list
   null

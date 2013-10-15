@@ -104,3 +104,9 @@ describe 'asx parsing', ->
       parsed.length.should.equal 1
       parsed[0].file.should.equal 'http://kexp-mp3-2.cac.washington.edu:8000/'
 
+    it 'should return null, when REF has no attributes', ->
+      parsed = ASX.parse fs.readFileSync './test/malformed_no_attributes.asx', encoding: 'utf8'
+      parsed.should.be.an 'array'
+      parsed.length.should.be.empty
+    
+
