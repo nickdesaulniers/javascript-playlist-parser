@@ -11,6 +11,6 @@ parse = (playlist) ->
   tracks.filter (track) -> track?
 
 (if module? then module.exports else window).PLS =
-  name: "pls"
+  name: 'pls'
   parse: parse
 

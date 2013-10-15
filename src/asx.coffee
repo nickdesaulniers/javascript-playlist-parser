@@ -1,4 +1,4 @@
-DOMParser = window?.DOMParser or require?('xmldom').DOMParser or () ->
+DOMParser = window?.DOMParser or require?('xmldom').DOMParser or ->
 
 # pre order, depth first
 find = (node, list) ->
@@ -26,6 +26,6 @@ parse = (playlist) ->
   ret
 
 (if module? then module.exports else window).ASX =
-  name: "asx"
+  name: 'asx'
   parse: parse
 

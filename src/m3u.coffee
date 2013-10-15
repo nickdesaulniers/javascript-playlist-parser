@@ -1,6 +1,6 @@
 # http://gonze.com/playlists/playlist-format-survey.html#M3U
 
-EXTENDED = "#EXTM3U"
+EXTENDED = '#EXTM3U'
 COMMENT_RE = /:(-?\d+),(.+)\s*-\s*(.+)\n(.+)/
 
 # #EXTINF:822,Iron Maiden - Rime of the Ancient Mariner
@@ -22,13 +22,13 @@ comments = (line) ->
   line[0] isnt '#'
 
 parse = (playlist) ->
-  firstNewline = playlist.search "\n"
+  firstNewline = playlist.search '\n'
   if playlist.substr(0, firstNewline) is EXTENDED
-    playlist.substr(firstNewline).split("#").filter(empty).map extended
+    playlist.substr(firstNewline).split('#').filter(empty).map extended
   else
-    playlist.split("\n").filter(empty).filter(comments).map simple
+    playlist.split('\n').filter(empty).filter(comments).map simple
 
 (if module? then module.exports else window).M3U =
-  name: "m3u"
+  name: 'm3u'
   parse: parse
 
