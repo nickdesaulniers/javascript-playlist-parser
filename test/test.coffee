@@ -98,3 +98,15 @@ describe 'asx parsing', ->
       parsed.length.should.equal 2
       parsed[0].file.should.equal 'http://stream.radiotime.com/sample.mp3'
       parsed[1].file.should.equal 'http://kexp-mp3-2.cac.washington.edu:8000/'
+
+    it 'should still parse, for wrong case attributes', ->
+      parsed = ASX.parse fs.readFileSync './test/malformed_wrong_case.asx', encoding: 'utf8'
+      parsed.length.should.equal 1
+      parsed[0].file.should.equal 'http://kexp-mp3-2.cac.washington.edu:8000/'
+
+    it 'should return null, when REF has no attributes', ->
+      parsed = ASX.parse fs.readFileSync './test/malformed_no_attributes.asx', encoding: 'utf8'
+      parsed.should.be.an 'array'
+      parsed.length.should.be.empty
+    
+
