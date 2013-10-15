@@ -29,7 +29,7 @@ function parse () {
 function next (audio, playlist, i) {
   if (i < playlist.length) {
     audio.src = playlist[i++].file;
-    audio.onended = next.bind(null, playlist, i);
+    audio.onended = next.bind(null, audio, playlist, i);
     audio.play();
   }
 };
