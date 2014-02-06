@@ -50,7 +50,7 @@ var parsers = require("playlist-parser");
 var M3U = parsers.M3U;
 
 var fs = require("fs");
-var playlist = M3U.parse(fs.readFileSync("my_playlist.m3u", { encodeing: "utf8" }));
+var playlist = M3U.parse(fs.readFileSync("my_playlist.m3u", { encoding: "utf8" }));
 ```
 ##Return Values##
 Calls to parse return an array of objects that look like:
