@@ -22,7 +22,7 @@ comments = (line) ->
   line[0] isnt '#'
 
 parse = (playlist) ->
-  playlist = playlist.replace /\r\n/g, "\n"
+  playlist = playlist.replace /\r\n/g, '\n'
   firstNewline = playlist.search '\n'
   if playlist.substr(0, firstNewline) is EXTENDED
     playlist.substr(firstNewline).split('#').filter(empty).map extended
