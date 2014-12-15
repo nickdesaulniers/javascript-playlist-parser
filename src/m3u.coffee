@@ -24,7 +24,7 @@ comments = (line) ->
 parse = (playlist) ->
   firstNewline = playlist.search '\n'
   if playlist.substr(0, firstNewline) is EXTENDED
-    playlist.substr(firstNewline).split('#').filter(empty).map extended
+    playlist.substr(firstNewline).split('\n#').filter(empty).map extended
   else
     playlist.split('\n').filter(empty).filter(comments).map simple
 
