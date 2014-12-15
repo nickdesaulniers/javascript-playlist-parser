@@ -58,6 +58,14 @@ describe 'm3u parsing', ->
         parsed[0].should.have.ownProperty 'length'
         parsed[0].length.should.equal '-1'
 
+    describe 'titles containing a pound or hash character', ->
+      it 'should still parse', ->
+        playlist = fs.readFileSync './test/pound_hash_name.m3u', encoding: 'utf8'
+        parsed = M3U.parse playlist
+        parsed.length.should.equal 1
+        parsed[0].title.should.equal 'R#ime of the Ancient Mariner'
+
+
 describe 'pls parsing', ->
   it 'should have a name of pls', ->
     PLS.name.should.equal 'pls'
