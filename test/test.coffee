@@ -55,6 +55,12 @@ describe 'm3u parsing', ->
         parsed2.length.should.equal 1
         expect(parsed2[0]).not.to.be.undefined
 
+        playlist3 = fs.readFileSync './test/bad_extended3.m3u', encoding: 'utf8'
+        parsed3 = M3U.parse playlist3
+        parsed3.length.should.equal 1
+        console.log parsed3[0]
+        expect(parsed3[0]).not.to.be.undefined
+
     describe 'negative time', ->
       it 'should still parse', ->
         playlist = fs.readFileSync './test/negative_time.m3u', encoding: 'utf8'

@@ -1,13 +1,13 @@
 # http://gonze.com/playlists/playlist-format-survey.html#M3U
 
 EXTENDED = '#EXTM3U'
-COMMENT_RE = /:(-?\d+),(?:(.+)\s*-\s*(.+)|(.+))\n(.+)/
+COMMENT_RE = /:(?:(-?\d+),(.+)\s*-\s*(.+)|(.+))\n(.+)/
 
 # #EXTINF:822,Iron Maiden - Rime of the Ancient Mariner
 extended = (line) ->
   match = line.match COMMENT_RE
   if match and match.length is 6
-    length: match[1]
+    length: match[1] or 0
     artist: match[2] or ''
     title: match[4] or match[3]
     file: match[5].trim()
