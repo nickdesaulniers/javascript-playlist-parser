@@ -1,6 +1,6 @@
 fs = require 'fs'
-assert = require 'assert'
 should = require('chai').should()
+expect = require('chai').expect
 
 parsers = require '../lib/parser.min.js'
 M3U = parsers.M3U
@@ -47,7 +47,13 @@ describe 'm3u parsing', ->
         playlist = fs.readFileSync './test/bad_extended.m3u', encoding: 'utf8'
         parsed = M3U.parse playlist
         parsed.length.should.equal 1
+        expect(parsed[0]).not.to.be.undefined
         parsed[0].file.should.equal 'http://radio.4duk.ru:80/4duk40.mp3'
+
+        playlist2 = fs.readFileSync './test/bad_extended2.m3u', encoding: 'utf8'
+        parsed2 = M3U.parse playlist2
+        parsed2.length.should.equal 1
+        expect(parsed2[0]).not.to.be.undefined
 
     describe 'negative time', ->
       it 'should still parse', ->
@@ -64,7 +70,6 @@ describe 'm3u parsing', ->
         parsed = M3U.parse playlist
         parsed.length.should.equal 1
         parsed[0].title.should.equal 'R#ime of the Ancient Mariner'
-
 
 describe 'pls parsing', ->
   it 'should have a name of pls', ->
@@ -116,5 +121,4 @@ describe 'asx parsing', ->
       parsed = ASX.parse fs.readFileSync './test/malformed_no_attributes.asx', encoding: 'utf8'
       parsed.should.be.an 'array'
       parsed.length.should.be.empty
-    
 
