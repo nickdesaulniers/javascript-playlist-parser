@@ -30,7 +30,9 @@
     "chai": "1.7.2",
     "grunt-contrib-coffee": "0.7.0",
     "grunt-mocha-test": "0.6.3",
-    "grunt-contrib-uglify": "~0.2.4",
+    "grunt-contrib-uglify": "~0.2.4"
+  },
+  "dependencies": {
     "xmldom": "0.1.16"
   }
 }
