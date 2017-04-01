@@ -1,8 +1,8 @@
-#javascript-playlist-parser#
+# javascript-playlist-parser #
 Parse m3u, m3u extended, pls, and asx in JavaScript.
 
-##Usage##
-###Browser###
+## Usage ##
+### Browser ###
 Adds `window.M3U.parse`, `window.PLS.parse`, and `window.ASX.parse` which take a
 string and return a possibly empty array of objects.
 
@@ -37,7 +37,7 @@ function next (audio, playlist, i) {
 
 [Demo](http://nickdesaulniers.github.io/javascript-playlist-parser/)
 
-###Node.js###
+### Node.js ###
 Adds `require('playlist-parser').M3U.parse`,
 `require('playlist-parser').PLS.parse`,
 and `require('playlist-parser').ASX.parse`
@@ -52,17 +52,17 @@ var M3U = parsers.M3U;
 var fs = require("fs");
 var playlist = M3U.parse(fs.readFileSync("my_playlist.m3u", { encoding: "utf8" }));
 ```
-##Return Values##
+## Return Values ##
 Calls to parse return an array of objects that look like:
 
-###M3U Simple or ASX###
+### M3U Simple or ASX ###
 ```javascript
 [{
   file: "http://song.com/song.mp3"
 }]
 ```
 
-###M3U Extended###
+### M3U Extended ###
 ```javascript
 [{
   length: 1234,
@@ -72,7 +72,7 @@ Calls to parse return an array of objects that look like:
 }]
 ```
 
-###PLS###
+### PLS ###
 ```javascript
 [{
   file: "http://song.com/song.mp3",
@@ -81,12 +81,12 @@ Calls to parse return an array of objects that look like:
 }]
 ```
 
-##MIME Types##
+## MIME Types ##
 * m3u -> audio/x-mpegurl
 * pls -> audio/x-scpls
 * asx -> video/x-ms-asf
 
-##License##
+## License ##
 
 This software is dual licensed under the MIT and Beerware license.
 
